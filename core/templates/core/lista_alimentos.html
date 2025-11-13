@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alimentos</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Estoque de Alimentos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Unidade</th>
+                <th>Peso</th>
+                <th>Valor (R$)</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in alimentos %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.nome }}</td>
+                    <td>{{ item.unidade }}</td>
+                    <td>{{ item.peso }}</td>
+                    <td>{{ item.valor }}</td>
+                    <td>{{ item.estoque }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">Nenhum alimento cadastrado ainda.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
